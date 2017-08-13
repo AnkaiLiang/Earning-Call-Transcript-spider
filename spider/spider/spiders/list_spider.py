@@ -15,7 +15,7 @@ class DmozSpider(scrapy.Spider):
     import sys
     reload(sys)
     sys.setdefaultencoding('utf-8')
-    base_addree = "/Users/kk/Documents/qyk/data/"
+    base_addree = "/Users/kk/Documents/qyk/data"
 
     def mkdir(self, path):
         import os

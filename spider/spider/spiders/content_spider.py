@@ -10,7 +10,7 @@ class DmozSpider(scrapy.Spider):
     start_urls = [
     ]
     base_url = "https://seekingalpha.com"
-    base_addree = "/Users/kk/Documents/qyk/data/"
+    base_addree = "/Users/kk/Documents/qyk/data"
     import sys
     reload(sys)
     sys.setdefaultencoding('utf-8')
@@ -61,7 +61,7 @@ class DmozSpider(scrapy.Spider):
        # summary_title = "Earning summary" + " " + time
        # summary = "  ".join(page.xpath('//div[@class="data-line"]//text()').extract())
         
-        path = self.base_addree + symbol
+        path = self.base_addree + '/' + symbol
         print path
        # print summary
         self.mkdir(path)

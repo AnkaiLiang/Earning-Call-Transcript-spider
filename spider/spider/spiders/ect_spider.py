@@ -65,8 +65,8 @@ class DmozSpider(scrapy.Spider):
        # summary_title = "Earning summary" + " " + time
        # summary = "  ".join(page.xpath('//div[@class="data-line"]//text()').extract())
         
-        base_addree = "/Users/kk/Documents/qyk/data/"
-        path = base_addree + symbol
+        base_addree = "/Users/kk/Documents/qyk/data"
+        path = base_addree + '/' + symbol
         print path
        # print summary
         self.mkdir(path)
