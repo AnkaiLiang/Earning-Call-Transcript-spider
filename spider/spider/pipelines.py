@@ -11,9 +11,10 @@ class SpiderPipeline(object):
     def __init__(self):
 		self.base_addrees = settings['BASE_ADDREES']
     def mkdir(self, path):
-	    import os
-	    isExists=os.path.exists(path)
+	import os
+	isExists=os.path.exists(path)
 	 
+	if not isExists:
 	    os.makedirs(path)
 	return
 
