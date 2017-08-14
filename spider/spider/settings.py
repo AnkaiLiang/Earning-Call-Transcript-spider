@@ -15,7 +15,7 @@ SPIDER_MODULES = ['spider.spiders']
 NEWSPIDER_MODULE = 'spider.spiders'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 16
 
 RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 RETRY_TIMES = 3
@@ -23,12 +23,16 @@ RETRY_TIMES = 3
 #USER_AGENT = 'spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-base_addrees = '/Users/kk/Documents/qyk/data'
+BASE_ADDREES = '/Users/kk/Documents/qyk/data'
 ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 2
+DOWNLOAD_DELAY = 1
+
+ITEM_PIPELINES = {
+    'spider.pipelines.SpiderPipeline': 300,
+}
 
 START_PAGE = 400
 # The download delay setting will honor only one of:
@@ -56,15 +60,17 @@ SPIDER_MIDDLEWARES = {
 }
 
 DOWNLOADER_MIDDLEWARES = {  
- #       'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,  
+#	        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,  
  #		'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : 810,  
- 		'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+ 		'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 800,
+#
+#		'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 120,
  #		'scrapyjs.SplashCookiesMiddleware': 723,
-#  		'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware' : 723,
+ # 		'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware' : 722,
 		'scrapy_splash.SplashCookiesMiddleware': 723,
    		'scrapy_splash.SplashMiddleware': 725,
-        	'spider.rotate_useragent.RotateUserAgentMiddleware' : 110,
-#       		'spider.proxyMiddleware.ProxyMiddleware' : 100,
+        	'spider.rotate_useragent.RotateUserAgentMiddleware' : 100,
+      		'spider.proxyMiddleware.ProxyMiddleware' : 110,
 #       'scrapyjs.SplashMiddleware': 725, 
    	} 
 
@@ -75,7 +81,7 @@ PROXY_LIST = [
 	"66.70.191.215:1080",
 	"96.239.193.114:8080",
 	"47.89.185.47:80",
-	"47.52.24.117:80",
+		"47.52.24.117:80",
 	"52.11.203.152:8083",
 	"47.88.102.116:8118",
 	"13.56.40.133:80",

@@ -33,7 +33,7 @@ class DmozSpider(scrapy.Spider):
         for sel in page.xpath('//li[@class="list-group-item article"]'):
             href = self.base_url + sel.xpath('h3/a/@href').extract()[0]
     #        print href
-            yield scrapy.Request(href, self.parse_content, meta={
+            yield scrapy.Request(href, self.parse_item, meta={
                 'splash': {
                     'endpoint': "render.html",
                     'args': {'wait': 0.5},
@@ -41,7 +41,7 @@ class DmozSpider(scrapy.Spider):
                   }
             })
 
-    def parse_content(self, response):
+    def parse_item(self, response):
         page = Selector(response)
         item = SeekingalphaItem()
         symbolg = page.xpath('//p[@class="p p1"]/a/text()').extract()
@@ -65,4 +65,3 @@ class DmozSpider(scrapy.Spider):
        # p.write("\n")
        # p.writelines(summary)
        # p.close();
-
