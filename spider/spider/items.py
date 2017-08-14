@@ -8,11 +8,10 @@
 import scrapy
 
 
-class SpiderItem(scrapy.Item):
+class SeekingalphaItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    company = scrapy.Field()
-    time = scrapy.Field()
+    symbol = scrapy.Field()
+    timestr = scrapy.Field()
     content = scrapy.Field()
-    link = scrapy.Field()
     pass

@@ -27,12 +27,13 @@ class DmozSpider(scrapy.Spider):
 
     def start_requests(self):
         baselisturl = "https://seekingalpha.com/earnings/earnings-call-transcripts"
-        for k in range(1, 10):
+        for k in range(1, 200):
             newurl = baselisturl +'/' + str(k)
             self.start_urls.append(newurl)
 
         for url in self.start_urls:
-            yield scrapy.Request(url, callback=self.parse_page)
+            print url
+	    yield scrapy.Request(url, callback=self.parse_page)
 
 
 

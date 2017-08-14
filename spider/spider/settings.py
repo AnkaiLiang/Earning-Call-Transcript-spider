@@ -15,22 +15,25 @@ SPIDER_MODULES = ['spider.spiders']
 NEWSPIDER_MODULE = 'spider.spiders'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 32
 
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+RETRY_TIMES = 3
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
-
+base_addrees = '/Users/kk/Documents/qyk/data'
+ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
 DOWNLOAD_DELAY = 2
-# The download delay setting will honor only one of:
-CONCURRENT_REQUESTS_PER_DOMAIN = 1
-CONCURRENT_REQUESTS_PER_IP = 1
 
+START_PAGE = 400
+# The download delay setting will honor only one of:
+#CONCURRENT_REQUESTS_PER_DOMAIN = 3
+#CONCURRENT_REQUESTS_PER_IP = 3
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
 
@@ -57,11 +60,28 @@ DOWNLOADER_MIDDLEWARES = {
  #		'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : 810,  
  		'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
  #		'scrapyjs.SplashCookiesMiddleware': 723,
-  		'scrapy_splash.SplashCookiesMiddleware': 723,
+#  		'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware' : 723,
+		'scrapy_splash.SplashCookiesMiddleware': 723,
    		'scrapy_splash.SplashMiddleware': 725,
-        'spider.rotate_useragent.RotateUserAgentMiddleware' :100,
- #       'scrapyjs.SplashMiddleware': 725, 
-    }  
+        	'spider.rotate_useragent.RotateUserAgentMiddleware' : 110,
+#       		'spider.proxyMiddleware.ProxyMiddleware' : 100,
+#       'scrapyjs.SplashMiddleware': 725, 
+   	} 
+
+PROXY_LIST = [
+	"69.161.24.54:3128",
+	"192.95.18.162:8080",
+	"104.196.226.56:80",
+	"66.70.191.215:1080",
+	"96.239.193.114:8080",
+	"47.89.185.47:80",
+	"47.52.24.117:80",
+	"52.11.203.152:8083",
+	"47.88.102.116:8118",
+	"13.56.40.133:80",
+	"168.128.29.75:80",
+]
+ 
 SPLASH_URL = 'http://192.168.99.100:8050'
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
