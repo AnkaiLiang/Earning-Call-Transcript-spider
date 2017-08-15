@@ -1,6 +1,9 @@
 # Web Crawler Scrapy of Earning-Call-Transcript
+
 ## Description
-	This spider will crawl the content of Earning-Call-Transcript in "seekingalpha.com", and make a file with the published time in a folder named by 'symbor' for each Earning-Call-Transcript.
+
+This spider will crawl the content of Earning-Call-Transcript in "seekingalpha.com", and make a file with the published time in a folder named by 'symbor' for each Earning-Call-Transcript.
+	
 ## Usage
 1. Install Scrapy
   - [Scrapy](http://doc.scrapy.org/en/latest/intro/install.html)
