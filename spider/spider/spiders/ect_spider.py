@@ -8,7 +8,7 @@ import time
 
 
 class DmozSpider(scrapy.Spider):
-    name = "epo"
+    name = "ect"
     allowed_domains = ["seekingalpha.com"]
     start_urls = ["https://seekingalpha.com/earnings/earnings-call-transcripts"
     ]

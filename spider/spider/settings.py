@@ -22,18 +22,19 @@ RETRY_TIMES = 1
 #USER_AGENT = 'spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-BASE_ADDREES = '/Users/kk/Documents/qyk/dota'
+BASE_ADDREES = '/User/kk/newdata'
 ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 0.5
 
 ITEM_PIPELINES = {
     'spider.pipelines.SpiderPipeline': 300,
 }
 
-START_PAGE = 1
+START_PAGE = 1075
+END_PAGE = 4539
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 3
 #CONCURRENT_REQUESTS_PER_IP = 3
@@ -87,7 +88,7 @@ PROXY_LIST = [
 	"168.128.29.75:80",
 ]
  
-#SPLASH_URL = 'http://192.168.99.100:8050'
+SPLASH_URL = 'http://localhost:8050'
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
