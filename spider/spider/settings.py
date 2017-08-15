@@ -15,15 +15,14 @@ SPIDER_MODULES = ['spider.spiders']
 NEWSPIDER_MODULE = 'spider.spiders'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 16
-
+CONCURRENT_REQUESTS = 32
 RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
-RETRY_TIMES = 3
+RETRY_TIMES = 1
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-BASE_ADDREES = '/Users/kk/Documents/qyk/data'
+BASE_ADDREES = '/Users/kk/Documents/qyk/dota'
 ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
@@ -34,7 +33,7 @@ ITEM_PIPELINES = {
     'spider.pipelines.SpiderPipeline': 300,
 }
 
-START_PAGE = 400
+START_PAGE = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 3
 #CONCURRENT_REQUESTS_PER_IP = 3
@@ -66,11 +65,11 @@ DOWNLOADER_MIDDLEWARES = {
 #
 #		'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 120,
  #		'scrapyjs.SplashCookiesMiddleware': 723,
- # 		'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware' : 722,
-		'scrapy_splash.SplashCookiesMiddleware': 723,
-   		'scrapy_splash.SplashMiddleware': 725,
+  		'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware' : 722,
+#		'scrapy_splash.SplashCookiesMiddleware': 723,
+ #  		'scrapy_splash.SplashMiddleware': 725,
         	'spider.rotate_useragent.RotateUserAgentMiddleware' : 100,
-      		'spider.proxyMiddleware.ProxyMiddleware' : 110,
+ #     		'spider.proxyMiddleware.ProxyMiddleware' : 110,
 #       'scrapyjs.SplashMiddleware': 725, 
    	} 
 
@@ -81,14 +80,14 @@ PROXY_LIST = [
 	"66.70.191.215:1080",
 	"96.239.193.114:8080",
 	"47.89.185.47:80",
-		"47.52.24.117:80",
+	"47.52.24.117:80",
 	"52.11.203.152:8083",
 	"47.88.102.116:8118",
 	"13.56.40.133:80",
 	"168.128.29.75:80",
 ]
  
-SPLASH_URL = 'http://192.168.99.100:8050'
+#SPLASH_URL = 'http://192.168.99.100:8050'
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
